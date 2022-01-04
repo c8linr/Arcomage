@@ -1,0 +1,23 @@
+Card (possibly have each individual card inherit from an abstract Card)
+Deck? (or just generate a random card in the Hand at the beginning of a turn)
+Player (User & Enemy)
+  Tower
+  Wall
+  Hand (contains available Cards)
+Resources (not sure whether to keep as one class or make it a container for smaller classes)
+  Quarry
+    Bricks
+  Magic
+    Gems
+  Zoo
+    Beasts
+WinCondition
+LoseCondition (maybe?)
+StartCondition
+
+Taking a turn would be a Player method
+	-Start with playing a card (if the card says "play again", draw and keep turn going)
+	-Draw a card
+	-Check the win/lose conditions
+
+Probably going to end up needing a Drawable interface
