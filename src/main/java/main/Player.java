@@ -1,4 +1,7 @@
 package main;
+
+import conditions.StartCondition;
+
 /**
  * @author Caitlin Ross
  * Project: Arcomage, a minigame from 3DO's Might and Magic VII: For Blood and Honor
@@ -11,8 +14,11 @@ public abstract class Player {
     protected Wall playerWall;
     protected Hand playerHand;
 
-    public Player() {
-        // TODO: initialize the player
+    public Player(StartCondition startCond) {
+        playerResources = new Resources(startCond);
+        playerTower = new Tower(startCond);
+        playerWall = new Wall(startCond);
+        playerHand = new Hand();
     }
 
     public int getTowerHeight() {
@@ -24,4 +30,8 @@ public abstract class Player {
     }
 
     public abstract void takeTurn();
+
+    protected Card drawCard() {
+        return playerHand.drawCard();
+    }
 }

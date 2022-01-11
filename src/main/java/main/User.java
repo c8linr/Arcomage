@@ -1,5 +1,7 @@
 package main;
 
+import conditions.StartCondition;
+
 /**
  * @author Caitlin Ross
  * Project: Arcomage, a minigame from 3DO's Might and Magic VII: For Blood and Honor
@@ -7,5 +9,13 @@ package main;
  */
 
 public class User extends Player {
-    // TODO: implement User class
+    public User(StartCondition startCond) {
+        super(startCond);
+    }
+
+    @Override
+    public void takeTurn() {
+        super.drawCard();
+        // TODO: implement user turn
+    }
 }

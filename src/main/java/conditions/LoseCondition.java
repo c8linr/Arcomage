@@ -9,8 +9,9 @@ import main.Player;
  */
 
 public class LoseCondition {
-    // No need to initialize a tower value or resource value
-    public boolean checkPlayerLose(Player p) {
+    // Lose condition is the same no matter what
+
+    public static boolean checkPlayerLoss(Player p) {
         return (p.getTowerHeight() <= 0);
     }
 }

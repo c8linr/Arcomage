@@ -29,28 +29,70 @@ public class Resources {
         return quarry;
     }
 
+    public void addQuarry(int toAdd) {
+        quarry += toAdd;
+        if (quarry < 1) {
+            quarry = 1;
+        }
+    }
+
     public int getBricks() {
         return bricks;
+    }
+
+    public void addBricks(int toAdd) {
+        bricks += toAdd;
+        if (bricks < 0) {
+            bricks = 0;
+        }
     }
 
     public int getMagic() {
         return magic;
     }
 
+    public void addMagic(int toAdd) {
+        magic += toAdd;
+        if (magic < 1) {
+            magic = 1;
+        }
+    }
+
     public int getGems() {
         return gems;
+    }
+
+    public void addGems(int toAdd) {
+        gems += toAdd;
+        if (gems < 0) {
+            gems = 0;
+        }
     }
 
     public int getZoo() {
         return zoo;
     }
 
+    public void addZoo(int toAdd) {
+        zoo += toAdd;
+        if (zoo < 1) {
+            zoo = 1;
+        }
+    }
+
     public int getBeasts() {
         return beasts;
     }
 
+    public void addBeasts(int toAdd) {
+        beasts += toAdd;
+        if (beasts < 0) {
+            beasts = 0;
+        }
+    }
+
     public void update() throws ArithmeticException {
-        if (quarry <=0 || magic <=0 || zoo <= 0) {
+        if (quarry < 1 || magic < 1 || zoo < 1) {
             throw new ArithmeticException();
         } else {
             bricks += quarry;

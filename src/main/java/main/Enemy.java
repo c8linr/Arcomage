@@ -1,5 +1,7 @@
 package main;
 
+import conditions.StartCondition;
+
 /**
  * @author Caitlin Ross
  * Project: Arcomage, a minigame from 3DO's Might and Magic VII: For Blood and Honor
@@ -7,5 +9,14 @@ package main;
  */
 
 public class Enemy extends Player {
-    // TODO: implement Enemy class
+    public Enemy(StartCondition startCond) {
+        super(startCond);
+    }
+
+    @Override
+    public void takeTurn() {
+        super.drawCard();
+        // TODO: implement enemy turn
+
+    }
 }
