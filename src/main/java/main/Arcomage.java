@@ -18,8 +18,8 @@ public class Arcomage {
     public Arcomage() {
         startCondition = new StartCondition();
         winCondition = new WinCondition();
-        userPlayer = new User();
-        enemyPlayer = new Enemy();
+        userPlayer = new User(startCondition);
+        enemyPlayer = new Enemy(startCondition);
     }
 
     public static void main(String[] args) {
