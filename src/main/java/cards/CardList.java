@@ -1,4 +1,6 @@
-package main;
+package cards;
+
+import cards.Card;
 
 public enum CardList {
     AMETHYST("Amethyst", Card.BLUE_CARD, 2),

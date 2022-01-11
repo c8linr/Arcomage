@@ -1,6 +1,9 @@
-package main;
+package players;
 
+import cards.Card;
+import cards.Hand;
 import conditions.StartCondition;
+import main.*;
 
 /**
  * @author Caitlin Ross

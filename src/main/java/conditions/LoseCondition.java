@@ -1,6 +1,6 @@
 package conditions;
 
-import main.Player;
+import players.Player;
 
 /**
  * @author Caitlin Ross

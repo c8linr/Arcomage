@@ -2,6 +2,8 @@ package main;
 
 import conditions.StartCondition;
 import conditions.WinCondition;
+import players.Enemy;
+import players.User;
 
 /**
  * @author Caitlin Ross

@@ -1,4 +1,4 @@
-package main;
+package players;
 
 import conditions.StartCondition;
 
@@ -8,15 +8,14 @@ import conditions.StartCondition;
  * @version 1.0, 04/01/22
  */
 
-public class Enemy extends Player {
-    public Enemy(StartCondition startCond) {
+public class User extends Player {
+    public User(StartCondition startCond) {
         super(startCond);
     }
 
     @Override
     public void takeTurn() {
         super.drawCard();
-        // TODO: implement enemy turn
-
+        // TODO: implement user turn
     }
 }

@@ -1,6 +1,5 @@
 package conditions;
-import main.Player;
-import main.Tower;
+import players.Player;
 import main.Resources;
 
 /**
