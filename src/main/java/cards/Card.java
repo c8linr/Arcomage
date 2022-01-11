@@ -1,5 +1,7 @@
 package cards;
 
+import java.util.ArrayList;
+
 /**
  * @author Caitlin Ross
  * Project: Arcomage, a minigame from 3DO's Might and Magic VII: For Blood and Honor
@@ -14,8 +16,16 @@ public class Card {
     private String name;
     private int cost;
     private String cardColour;
+    private ArrayList<CardEffect> cardEffects;
 
-    // TODO: implement Card class
+    public Card(CardList theCard){
+        this.name = theCard.getName();
+        this.cost = theCard.getCost();
+        this.cardColour = theCard.getCardColour();
 
+        cardEffects = new ArrayList<>();
+        for(CardEffect effect : theCard.getAllEffects()) {
+            cardEffects.add(effect);
+        }
+    }
 }
-

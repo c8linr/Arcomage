@@ -1,6 +1,6 @@
 package conditions;
-import players.Player;
-import main.Resources;
+import player.Player;
+import playerproperties.Resources;
 
 /**
  * @author Caitlin Ross

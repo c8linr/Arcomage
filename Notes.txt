@@ -4,6 +4,12 @@ Card (possibly have each individual card inherit from an abstract Card)
         To define the function, need certain flags and CardEffect objects
         CardEffects define the thing (tower, wall, resource) being affected, the player being affected, and the amount they are being affected by
         Flags include cannotDiscard, playAgain
+        Or maybe unique effects that inherit from CardEffect?
+            CannotDiscard
+            DrawCard
+            DiscardCard
+            PlayAgain
+            All the ones that include an "if" aspect (Parity, Elven Archers, etc)
 Deck? (or just generate a random card in the Hand at the beginning of a turn)
 Player (User & Enemy)
   Tower

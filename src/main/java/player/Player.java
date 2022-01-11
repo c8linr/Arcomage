@@ -1,9 +1,11 @@
-package players;
+package player;
 
 import cards.Card;
 import cards.Hand;
 import conditions.StartCondition;
-import main.*;
+import playerproperties.Resources;
+import playerproperties.Tower;
+import playerproperties.Wall;
 
 /**
  * @author Caitlin Ross

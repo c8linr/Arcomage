@@ -1,37 +1,85 @@
 package cards;
 
-import cards.Card;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public enum CardList {
-    AMETHYST("Amethyst", Card.BLUE_CARD, 2),
-    CRUMBLESTONE("Crumblestone", Card.BLUE_CARD, 7),
-    CRYSTALLIZE("Crystallize", Card.BLUE_CARD, 8),
-    CRYSTAL_MATRIX("Crystal Matrix", Card.BLUE_CARD, 6),
-    CRYSTAL_SHIELD("Crystal Shield", Card.BLUE_CARD, 12),
-    DIAMOND("Diamond", Card.BLUE_CARD, 16),
-    DISCORD("Discord", Card.BLUE_CARD, 5),
-    DRAGONS_EYE("Dragon's Eye", Card.BLUE_CARD, 21),
-    EMERALD("Emerald", Card.BLUE_CARD, 6),
-    EMPATHY_GEM("Empathy Gem", Card.BLUE_CARD, 14),
-    FIRE_RUBY("Fire Ruby", Card.BLUE_CARD, 13),
-    GEM_SPEAR("Gem Spear", Card.BLUE_CARD, 4),
-    GEMSTONE_FLAW("Gemstone Flaw", Card.BLUE_CARD, 2),
-    HARMONIC_VIBE("Harmonic Vibe", Card.BLUE_CARD, 7),
-    LAVA_JEWEL("Lava Jewel", Card.BLUE_CARD, 17),
-    LODESTONE("Lodestone", Card.BLUE_CARD, 5),
-    PARITY("Parity", Card.BLUE_CARD, 7),
-    PEARL_OF_WISDOM("Pearl of Wisdom", Card.BLUE_CARD, 9),
-    POWER_BURN("Power Burn", Card.BLUE_CARD, 3),
-    PRISM("Prism", Card.BLUE_CARD, 2),
-    QUARRYS_HELP("Quarry's Help", Card.BLUE_CARD, 4),
-    QUARTZ("Quartz", Card.BLUE_CARD, 1),
-    RUBY("Ruby", Card.BLUE_CARD, 3),
-    SANCTUARY("Sanctuary", Card.BLUE_CARD, 15),
-    SAPPHIRE("Sapphire", Card.BLUE_CARD, 10),
-    SHATTERER("Shatterer", Card.BLUE_CARD, 8),
-    SMOKY_QUARTZ("Smoky Quartz", Card.BLUE_CARD, 2),
-    SOLAR_FLARE("Solar Flare", Card.BLUE_CARD, 4),
-    SPELL_WEAVERS("Spell Weavers", Card.BLUE_CARD, 3),
+    AMETHYST("Amethyst", Card.BLUE_CARD, 2,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 3)),
+    CRUMBLESTONE("Crumblestone", Card.BLUE_CARD, 7,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 5),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.BRICKS, -6)),
+    CRYSTALLIZE("Crystallize", Card.BLUE_CARD, 8,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 11),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.WALL, -6)),
+    CRYSTAL_MATRIX("Crystal Matrix", Card.BLUE_CARD, 6,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, 1),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 3),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, 1)),
+    CRYSTAL_SHIELD("Crystal Shield", Card.BLUE_CARD, 12,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 8),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.WALL, 3)),
+    DIAMOND("Diamond", Card.BLUE_CARD, 16,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 15)),
+    DISCORD("Discord", Card.BLUE_CARD, 5,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, -7),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -7),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, -1),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.MAGIC, -1)),
+    DRAGONS_EYE("Dragon's Eye", Card.BLUE_CARD, 21,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 20)),
+    EMERALD("Emerald", Card.BLUE_CARD, 6,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 8)),
+    EMPATHY_GEM("Empathy Gem", Card.BLUE_CARD, 14,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 8),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.ZOO, 1)),
+    FIRE_RUBY("Fire Ruby", Card.BLUE_CARD, 13,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 6),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -4)),
+    GEM_SPEAR("Gem Spear", Card.BLUE_CARD, 4,
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -5)),
+    GEMSTONE_FLAW("Gemstone Flaw", Card.BLUE_CARD, 2,
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -3)),
+    HARMONIC_VIBE("Harmonic Vibe", Card.BLUE_CARD, 7,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, 1),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 3),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.WALL, 3)),
+    LAVA_JEWEL("Lava Jewel", Card.BLUE_CARD, 17,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 12),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -6)),
+    LODESTONE("Lodestone", Card.BLUE_CARD, 5, // NEEDS UNIQUE EFFECT TO PREVENT DISCARD
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 3)),
+    PARITY("Parity", Card.BLUE_CARD, 7), // NEEDS UNIQUE EFFECT TO FIND HIGHEST PLAYERS MAGIC
+    PEARL_OF_WISDOM("Pearl of Wisdom", Card.BLUE_CARD, 9,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 5),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, 1)),
+    POWER_BURN("Power Burn", Card.BLUE_CARD, 3,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, -5),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, 2)),
+    PRISM("Prism", Card.BLUE_CARD, 2), // NEEDS UNIQUE EFFECT TO DRAW, DISCARD, PLAY AGAIN
+    QUARRYS_HELP("Quarry's Help", Card.BLUE_CARD, 4,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 7),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.BRICKS, -10)),
+    QUARTZ("Quartz", Card.BLUE_CARD, 1, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 1)),
+    RUBY("Ruby", Card.BLUE_CARD, 3,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 5)),
+    SANCTUARY("Sanctuary", Card.BLUE_CARD, 15,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 10),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.WALL, 5),
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.BEASTS, 5)),
+    SAPPHIRE("Sapphire", Card.BLUE_CARD, 10,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 11)),
+    SHATTERER("Shatterer", Card.BLUE_CARD, 8,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, -1),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -9)),
+    SMOKY_QUARTZ("Smoky Quartz", Card.BLUE_CARD, 2, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -1)),
+    SOLAR_FLARE("Solar Flare", Card.BLUE_CARD, 4,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.TOWER, 2),
+            new CardEffect(CardEffect.AffectablePlayer.ENEMY_PLAYER, CardEffect.AffectableProperty.TOWER, -2)),
+    SPELL_WEAVERS("Spell Weavers", Card.BLUE_CARD, 3,
+            new CardEffect(CardEffect.AffectablePlayer.CURRENT_PLAYER, CardEffect.AffectableProperty.MAGIC, 1)),
     CORROSION_CLOUD("Corrosion Cloud", Card.GREEN_CARD, 11),
     DRAGON("Dragon", Card.GREEN_CARD, 25),
     DWARVES("Dwarves", Card.GREEN_CARD, 5),
@@ -94,11 +142,15 @@ public enum CardList {
     private final String name;
     private final String cardColour;
     private final int cost;
+    private final ArrayList<CardEffect> effects;
 
-    CardList(String name, String colour, int cost) {
+    CardList(String name, String colour, int cost, CardEffect... cardEffects) {
         this.name = name;
         this.cardColour = colour;
         this.cost = cost;
+
+        this.effects = new ArrayList<>();
+        Collections.addAll(this.effects, cardEffects);
     }
 
     public String getName() {
@@ -109,5 +161,8 @@ public enum CardList {
     }
     public int getCost() {
         return cost;
+    }
+    public ArrayList<CardEffect> getAllEffects() {
+        return effects;
     }
 }

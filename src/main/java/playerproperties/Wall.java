@@ -1,4 +1,4 @@
-package main;
+package playerproperties;
 
 import conditions.StartCondition;
 
@@ -8,11 +8,11 @@ import conditions.StartCondition;
  * @version 1.0, 04/01/22
  */
 
-public class Tower {
+public class Wall {
     private int height;
 
-    public Tower(StartCondition startCondition) {
-        height = startCondition.getStartingTower();
+    public Wall(StartCondition startCondition) {
+        height = startCondition.getStartingWall();
     }
 
     public int getHeight() {
@@ -31,6 +31,6 @@ public class Tower {
     }
 
     public void draw() {
-        // TODO implement Tower.draw() method
+        // TODO implement Wall.draw() method
     }
 }

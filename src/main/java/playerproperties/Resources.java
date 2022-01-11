@@ -1,4 +1,4 @@
-package main;
+package playerproperties;
 
 import conditions.StartCondition;
 
