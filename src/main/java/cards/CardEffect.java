@@ -1,9 +1,9 @@
 package cards;
 
 public class CardEffect {
-    private AffectablePlayer playerAffected;
-    private AffectableProperty thingAffected;
-    private int amountAffectedBy;
+    private final AffectablePlayer playerAffected;
+    private final AffectableProperty thingAffected;
+    private final int amountAffectedBy;
 
     public CardEffect(AffectablePlayer player, AffectableProperty thing, int amount) {
         playerAffected = player;
@@ -29,6 +29,7 @@ public class CardEffect {
     public enum AffectableProperty {
         TOWER("Tower"),
         WALL("Wall"),
+        DAMAGE("Damage"), // This value is usually POSITIVE, unlike direct Tower damage or other negative effects!
         QUARRY("Quarry"),
         BRICKS("Bricks"),
         MAGIC("Magic"),
