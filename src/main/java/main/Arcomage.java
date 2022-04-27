@@ -6,24 +6,33 @@ import player.Enemy;
 import player.User;
 
 /**
+ * Arcomage is a minigame from 3DO's Might and Magic VII: For Blood and Honor.
+ *
  * @author Caitlin Ross
- * Project: Arcomage, a minigame from 3DO's Might and Magic VII: For Blood and Honor
- * @version 1.0, 04/01/22
+ * @version 1.0
+ * @since 2022-04-27
  */
-
 public class Arcomage {
-    private StartCondition startCondition;
-    private WinCondition winCondition;
-    private User userPlayer;
-    private Enemy enemyPlayer;
+    private StartCondition startCondition; // Uninitialized, determines the starting resources
+    private WinCondition winCondition; // Uninitialized, determines the winning conditions
+    private User userPlayer; // Uninitialized, the user
+    private Enemy enemyPlayer; // Uninitialized, the enemy (computer-controlled)
 
+    /**
+     * No-arg constructor, initializes the game conditions and players
+     */
     public Arcomage() {
-        startCondition = new StartCondition();
-        winCondition = new WinCondition();
-        userPlayer = new User(startCondition);
-        enemyPlayer = new Enemy(startCondition);
+        startCondition = new StartCondition(); // Initialize the starting conditions
+        winCondition = new WinCondition(); // Initialize the win conditions
+        userPlayer = new User(startCondition); // Initialize the user, passing in the start conditions
+        enemyPlayer = new Enemy(startCondition); // Initialize the enemy, passing in the start conditions
     }
 
+    /**
+     * Main method, entrance point for the game
+     *
+     * @param args unused
+     */
     public static void main(String[] args) {
         // TODO: implement main method
     }
