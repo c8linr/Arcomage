@@ -54,8 +54,9 @@ public enum CardList {
     LAVA_JEWEL("Lava Jewel", Card.CardColour.BLUE, 17,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 12),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 6)),
-    LODESTONE("Lodestone", Card.CardColour.BLUE, 5, // NEEDS UNIQUE EFFECT TO PREVENT DISCARD
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 3)),
+    LODESTONE("Lodestone", Card.CardColour.BLUE, 5,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 3),
+            new CardEffect(CardEffect.OtherEffects.CANNOT_DISCARD)),
     PARITY("Parity", Card.CardColour.BLUE, 7), // NEEDS UNIQUE EFFECT TO FIND HIGHEST PLAYERS MAGIC
     PEARL_OF_WISDOM("Pearl of Wisdom", Card.CardColour.BLUE, 9,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 5),
@@ -63,12 +64,15 @@ public enum CardList {
     POWER_BURN("Power Burn", Card.CardColour.BLUE, 3,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, -5),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.MAGIC, 2)),
-    PRISM("Prism", Card.CardColour.BLUE, 2), // NEEDS UNIQUE EFFECT TO DRAW, DISCARD, PLAY AGAIN
+    PRISM("Prism", Card.CardColour.BLUE, 2,
+            new CardEffect(CardEffect.OtherEffects.DRAW_DISCARD),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     QUARRYS_HELP("Quarry's Help", Card.CardColour.BLUE, 4,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 7),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.BRICKS, -10)),
-    QUARTZ("Quartz", Card.CardColour.BLUE, 1, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 1)),
+    QUARTZ("Quartz", Card.CardColour.BLUE, 1,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 1),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     RUBY("Ruby", Card.CardColour.BLUE, 3,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 5)),
     SANCTUARY("Sanctuary", Card.CardColour.BLUE, 15,
@@ -80,8 +84,9 @@ public enum CardList {
     SHATTERER("Shatterer", Card.CardColour.BLUE, 8,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.MAGIC, -1),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -9)),
-    SMOKY_QUARTZ("Smoky Quartz", Card.CardColour.BLUE, 2, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -1)),
+    SMOKY_QUARTZ("Smoky Quartz", Card.CardColour.BLUE, 2,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -1),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     SOLAR_FLARE("Solar Flare", Card.CardColour.BLUE, 4,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 2),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -2)),
@@ -96,9 +101,12 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 4),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 3)),
     ELVEN_ARCHERS("Elven Archers", Card.CardColour.GREEN, 10), // NEEDS UNIQUE EFFECT FOR CONDITION
-    ELVEN_SCOUT("Elven Scout", Card.CardColour.GREEN, 2), // NEEDS UNIQUE EFFECT FOR DRAW, DISCARD, PLAY AGAIN
-    FAERIE("Faerie", Card.CardColour.GREEN, 1, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 2)),
+    ELVEN_SCOUT("Elven Scout", Card.CardColour.GREEN, 2,
+            new CardEffect(CardEffect.OtherEffects.DRAW_DISCARD),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
+    FAERIE("Faerie", Card.CardColour.GREEN, 1,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 2),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     FULL_MOON("Full Moon", Card.CardColour.GREEN, 0,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.ZOO, 1),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.ZOO, 1),
@@ -137,8 +145,9 @@ public enum CardList {
     ROCK_STOMPERS("Rock Stompers", Card.CardColour.GREEN, 11,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 8),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.QUARRY, -1)),
-    SHADOW_FAERIE("Shadow Faerie", Card.CardColour.GREEN, 6, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -2)),
+    SHADOW_FAERIE("Shadow Faerie", Card.CardColour.GREEN, 6,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -2),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     SLASHER("Slasher", Card.CardColour.GREEN, 5,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 6)),
     SPIZZER("Spizzer", Card.CardColour.GREEN, 8), // NEEDS UNIQUE EFFECT FOR CONDITION
@@ -195,8 +204,9 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 9),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.BEASTS, -5)),
     FOUNDATIONS("Foundations", Card.CardColour.RED, 3), // NEEDS UNIQUE EFFECT FOR CONDITION
-    FRIENDLY_TERRAIN("Friendly Terrain", Card.CardColour.RED, 1, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 1)),
+    FRIENDLY_TERRAIN("Friendly Terrain", Card.CardColour.RED, 1,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 1),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     GREAT_WALL("Great Wall", Card.CardColour.RED, 16,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 15)),
     HARMONIC_ORE("Harmonic Ore", Card.CardColour.RED, 11,
@@ -206,9 +216,10 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.QUARRY, 1),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.QUARRY, 1),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.GEMS, 4)),
-    LUCKY_CACHE("Lucky Cache", Card.CardColour.RED, 0, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
+    LUCKY_CACHE("Lucky Cache", Card.CardColour.RED, 0,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.BRICKS, 2),
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.GEMS, 2)),
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.GEMS, 2),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     MINERS("Miners", Card.CardColour.RED, 3,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.QUARRY, 1)),
     MONDO_WALL("Mondo Wall", Card.CardColour.RED, 13,
@@ -224,25 +235,27 @@ public enum CardList {
     ROCK_LAUNCHER("Rock Launcher", Card.CardColour.RED, 18,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 6),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 10)),
-    SECRET_ROOM("Secret Room", Card.CardColour.RED, 8, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.MAGIC, 1)),
+    SECRET_ROOM("Secret Room", Card.CardColour.RED, 8,
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.MAGIC, 1),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     STRIP_MINE("Strip Mine", Card.CardColour.RED, 0,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.QUARRY, -1),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 10),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.GEMS, 5)),
     STURDY_WALL("Sturdy_Wall", Card.CardColour.RED, 3,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 4)),
-    TREMORS("Tremors", Card.CardColour.RED, 7, // NEEDS UNIQUE EFFECT TO PLAY AGAIN
+    TREMORS("Tremors", Card.CardColour.RED, 7,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.WALL, -5),
-            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, -5)),
+            new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, -5),
+            new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     WORK_OVERTIME("Work Overtime", Card.CardColour.RED, 2,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 5),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.GEMS, -6));
 
-    private final String name; // Uninitialized, name of the card
-    private final Card.CardColour cardColour; // Uninitialized, colour of the card determines which resource is spent to play it
-    private final int cost; // Uninitialized, the amount of resources needed to play the card
-    private final ArrayList<CardEffect> effects; // Uninitialized, Array List of card effects
+    private final String name; // Name of the card
+    private final Card.CardColour cardColour; // Colour of the card determines which resource is spent to play it
+    private final int cost; // Amount of resources needed to play the card
+    private final ArrayList<CardEffect> effects; // Array List of card effects
 
     /**
      * Constructor, initializes the enum options.

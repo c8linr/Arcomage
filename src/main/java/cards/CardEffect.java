@@ -8,17 +8,17 @@ package cards;
  * @since 2022-06-14
  */
 public class CardEffect {
-    private final miscEffects otherEffect;
+    private final OtherEffects otherEffect;
 
     public CardEffect() {
         otherEffect = null;
     }
 
-    public CardEffect(miscEffects otherEffect) {
+    public CardEffect(OtherEffects otherEffect) {
         this.otherEffect = otherEffect;
     }
 
-    public enum miscEffects {
+    public enum OtherEffects {
         PLAY_AGAIN, CANNOT_DISCARD, DRAW_DISCARD;
     }
 }

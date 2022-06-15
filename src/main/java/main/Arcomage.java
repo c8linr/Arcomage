@@ -34,6 +34,6 @@ public class Arcomage {
      * @param args unused
      */
     public static void main(String[] args) {
-        // TODO: implement main method
+        // TODO: start the game
     }
 }
