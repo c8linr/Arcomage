@@ -11,6 +11,7 @@ public class ConditionalCardEffect extends CardEffect {
     private final CheckableProperty checkProperty;
     private final PropertyOwner propertyOwner;
     private final Operator operator;
+    private final int checkNum;
     private final StandardCardEffect trueResult;
     private final StandardCardEffect falseResult;
 
@@ -20,11 +21,12 @@ public class ConditionalCardEffect extends CardEffect {
      * @param propertyOwner
      * @param operator
      */
-    public ConditionalCardEffect(CheckableProperty checkProperty, PropertyOwner propertyOwner, Operator operator,
+    public ConditionalCardEffect(CheckableProperty checkProperty, PropertyOwner propertyOwner, Operator operator, int checkNum,
                                  StandardCardEffect trueResult, StandardCardEffect falseResult) {
         this.checkProperty = checkProperty;
         this.propertyOwner = propertyOwner;
         this.operator = operator;
+        this.checkNum = checkNum;
         this.trueResult = trueResult;
         this.falseResult = falseResult;
     }

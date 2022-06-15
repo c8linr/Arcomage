@@ -57,7 +57,7 @@ public enum CardList {
     LODESTONE("Lodestone", Card.CardColour.BLUE, 5,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 3),
             new CardEffect(CardEffect.OtherEffects.CANNOT_DISCARD)),
-    PARITY("Parity", Card.CardColour.BLUE, 7), // NEEDS UNIQUE EFFECT TO FIND HIGHEST PLAYERS MAGIC
+    /*PARITY("Parity", Card.CardColour.BLUE, 7), // NEEDS UNIQUE EFFECT TO FIND THE HIGHEST PLAYERS MAGIC*/
     PEARL_OF_WISDOM("Pearl of Wisdom", Card.CardColour.BLUE, 9,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 5),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.MAGIC, 1)),
@@ -92,7 +92,12 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.TOWER, -2)),
     SPELL_WEAVERS("Spell Weavers", Card.CardColour.BLUE, 3,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.MAGIC, 1)),
-    CORROSION_CLOUD("Corrosion Cloud", Card.CardColour.GREEN, 11), // NEEDS UNIQUE EFFECT FOR CONDITION
+    CORROSION_CLOUD("Corrosion Cloud", Card.CardColour.GREEN, 11,
+            new ConditionalCardEffect(ConditionalCardEffect.CheckableProperty.WALL,
+                    ConditionalCardEffect.PropertyOwner.CURRENT_ENEMY,
+                    ConditionalCardEffect.Operator.GREATER_THAN, 0,
+                    new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 10),
+                    new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 7))),
     DRAGON("Dragon", Card.CardColour.GREEN, 25,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 20),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.GEMS, -10),
@@ -100,7 +105,7 @@ public enum CardList {
     DWARVES("Dwarves", Card.CardColour.GREEN, 5,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 4),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 3)),
-    ELVEN_ARCHERS("Elven Archers", Card.CardColour.GREEN, 10), // NEEDS UNIQUE EFFECT FOR CONDITION
+    /*ELVEN_ARCHERS("Elven Archers", Card.CardColour.GREEN, 10), // NEEDS UNIQUE EFFECT FOR CONDITION*/
     ELVEN_SCOUT("Elven Scout", Card.CardColour.GREEN, 2,
             new CardEffect(CardEffect.OtherEffects.DRAW_DISCARD),
             new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
@@ -150,7 +155,11 @@ public enum CardList {
             new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
     SLASHER("Slasher", Card.CardColour.GREEN, 5,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 6)),
-    SPIZZER("Spizzer", Card.CardColour.GREEN, 8), // NEEDS UNIQUE EFFECT FOR CONDITION
+    SPIZZER("Spizzer", Card.CardColour.GREEN, 8,
+            new ConditionalCardEffect(ConditionalCardEffect.CheckableProperty.WALL, ConditionalCardEffect.PropertyOwner.CURRENT_ENEMY,
+                    ConditionalCardEffect.Operator.EQUALS, 0,
+                    new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 10),
+                    new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 6))),
     STONE_GIANT("Stone Giant", Card.CardColour.GREEN, 15,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 10),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 4)),
@@ -168,7 +177,7 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.TOWER, 2)),
     TROLL_KEEPER("Troll Keeper", Card.CardColour.GREEN, 7,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.ZOO, 2)),
-    UNICORN("Unicorn", Card.CardColour.GREEN, 9), // NEEDS UNIQUE EFFECT FOR CONDITION
+    /*UNICORN("Unicorn", Card.CardColour.GREEN, 9), // NEEDS UNIQUE EFFECT FOR CONDITION*/
     VAMPIRE("Vampire", Card.CardColour.GREEN, 17,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.DAMAGE, 10),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.BEASTS, -5),
@@ -184,7 +193,7 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.BRICKS, -8)),
     COLLAPSE("Collapse!", Card.CardColour.RED, 4,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_ENEMY, StandardCardEffect.AffectableProperty.QUARRY, -1)),
-    COPPING_THE_TECH("Copping the Tech", Card.CardColour.RED, 5), // NEEDS UNIQUE EFFECT FOR CONDITION
+    /*COPPING_THE_TECH("Copping the Tech", Card.CardColour.RED, 5), // NEEDS UNIQUE EFFECT FOR CONDITION*/
     CRYSTAL_ROCKS("Crystal Rocks", Card.CardColour.RED, 9,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 7),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.GEMS, 7)),
@@ -203,7 +212,11 @@ public enum CardList {
     FORCED_LABOUR("Forced Labour", Card.CardColour.RED, 7,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 9),
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.BEASTS, -5)),
-    FOUNDATIONS("Foundations", Card.CardColour.RED, 3), // NEEDS UNIQUE EFFECT FOR CONDITION
+    FOUNDATIONS("Foundations", Card.CardColour.RED, 3,
+            new ConditionalCardEffect(ConditionalCardEffect.CheckableProperty.WALL, ConditionalCardEffect.PropertyOwner.CURRENT_PLAYER,
+                    ConditionalCardEffect.Operator.EQUALS, 0,
+                    new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 6),
+                    new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 3))),
     FRIENDLY_TERRAIN("Friendly Terrain", Card.CardColour.RED, 1,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 1),
             new CardEffect(CardEffect.OtherEffects.PLAY_AGAIN)),
@@ -224,7 +237,7 @@ public enum CardList {
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.QUARRY, 1)),
     MONDO_WALL("Mondo Wall", Card.CardColour.RED, 13,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.WALL, 12)),
-    MOTHER_LODE("Mother Lode", Card.CardColour.RED, 4), // NEEDS UNIQUE EFFECT FOR CONDITION
+    /*MOTHER_LODE("Mother Lode", Card.CardColour.RED, 4), // NEEDS UNIQUE EFFECT FOR CONDITION*/
     NEW_EQUIPMENT("New Equipment", Card.CardColour.RED, 6,
             new StandardCardEffect(StandardCardEffect.AffectablePlayer.CURRENT_PLAYER, StandardCardEffect.AffectableProperty.QUARRY, 2)),
     PORTCULLIS("Portcullis", Card.CardColour.RED, 9,
